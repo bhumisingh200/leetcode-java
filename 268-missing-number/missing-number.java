@@ -10,7 +10,7 @@ class Solution {
     }
 }*/
 
-/*HashSet*/
+/*HashSet
     HashSet<Integer> set=new HashSet<>();
 
         for(int num:nums){
@@ -22,5 +22,16 @@ class Solution {
             }
         }
         return -1;
+    }
+}*/
+
+/*Sum*/
+       int expected=nums.length*(nums.length+1)/2;
+       
+       int actual=0;
+       for(int num:nums){
+        actual+=num;
+       }
+       return expected-actual;
     }
 }
