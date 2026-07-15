@@ -1,25 +1,25 @@
+/*Array*/
 class Solution {
     public boolean isIsomorphic(String s, String t) {
 
-        if (s.length() != t.length())
+        if(s.length()!=t.length()){
             return false;
-
-        int[] mapS = new int[256];
-        int[] mapT = new int[256];
-
-        for (int i = 0; i < s.length(); i++) {
-
-            if (mapS[s.charAt(i)] != mapT[t.charAt(i)]) {
-                return false;
-            }
-
-            mapS[s.charAt(i)] = i + 1;
-            mapT[t.charAt(i)] = i + 1;
         }
 
+        int[] mapS=new int[256];
+        int[] mapT=new int[256];
+
+        for(int i=0; i<s.length(); i++){
+            if(mapS[s.charAt(i)]!=mapT[t.charAt(i)]){
+                return false;
+            }
+            mapS[s.charAt(i)]=i+1;
+            mapT[t.charAt(i)]=i+1;
+        }
         return true;
     }
 }
+
 /*class Solution {
     public boolean isIsomorphic(String s, String t) {
 
@@ -36,22 +36,23 @@ class Solution {
             char ch2 = t.charAt(i);
 
             // Check s -> t
-            if (mapST.containsKey(ch1)) {
-                if (mapST.get(ch1) != ch2) {
-                    return false;
+            if(mapST.containsKey(ch1)){
+               if(mapST.get(ch1)!=ch2){
+                 return false;
                 }
-            } else {
-                mapST.put(ch1, ch2);
+            }else{
+               mapST.put(ch1,ch2);
             }
 
             // Check t -> s
-            if (mapTS.containsKey(ch2)) {
-                if (mapTS.get(ch2) != ch1) {
-                    return false;
+            if(mapTS.containsKey(ch1)){
+               if(mapTS.get(ch2)!=ch1){
+                  return false;
                 }
-            } else {
-                mapTS.put(ch2, ch1);
+            }else{
+               mapTS.put(ch2,ch1);
             }
+            
         }
 
         return true;
