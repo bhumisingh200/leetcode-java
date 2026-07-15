@@ -1,14 +1,14 @@
 class Solution {
     public int missingNumber(int[] nums) {
 
-       /* int xor=nums.length;  //that is why stored it first and the starting the loop of "<"
+       int xor=nums.length;  //that is why stored it first and the starting the loop of "<"
         for(int i=0; i<nums.length; i++){
             xor^=i;
             xor^=nums[i];   //this will not accept "<="" index(Index not found error)
         }
         return xor;
     }
-}*/
+}
 
 /*HashSet
     HashSet<Integer> set=new HashSet<>();
@@ -25,7 +25,7 @@ class Solution {
     }
 }*/
 
-/*Sum*/
+/*Sum
        int expected=nums.length*(nums.length+1)/2;
        
        int actual=0;
@@ -34,4 +34,4 @@ class Solution {
        }
        return expected-actual;
     }
-}
+}*/
