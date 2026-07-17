@@ -1,4 +1,4 @@
-/*class Solution {
+class Solution {
     public boolean isSubsequence(String s, String t) {
 
         int i = 0;
@@ -17,9 +17,9 @@
         }
         return i==s.length(); 
     }
-}*/
+}
 
-//or for less code but same logic
+/*or for less code but same logic
 class Solution {
     public boolean isSubsequence(String s, String t) {
 
@@ -33,4 +33,4 @@ class Solution {
 
         return i == s.length();
     }
-}
+}*/
