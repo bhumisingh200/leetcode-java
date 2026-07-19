@@ -5,7 +5,7 @@ class Solution {
             return 0;
         }
 
-        int i=0;   //initialization from index 0
+        int i=0;   //initialization of i
         for(int j=0; j<nums.length; j++){
             if(nums[i]!=nums[j]){
                 i++;
@@ -13,6 +13,5 @@ class Solution {
             }
         }
         return i+1;
-
     }
 }
