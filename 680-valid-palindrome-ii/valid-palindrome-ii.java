@@ -27,3 +27,5 @@ class Solution {
         return true;
     }
 }
+/*Q)Can you optimize this?"
+Ans)No. This solution is already optimal with O(n) time and O(1) extra space. The helper function does not increase the asymptotic complexity because it only checks the remaining substring after the first mismatch.*/
