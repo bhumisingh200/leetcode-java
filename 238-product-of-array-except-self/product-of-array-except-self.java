@@ -10,11 +10,12 @@ class Solution{
             ans[i]=ans[i-1]*nums[i-1];
         }
         //Multiply with right products
-        int rightproduct=1;
+        int rightProduct=1;
         for(int i=n-1; i>=0; i--){
-            ans[i] *= rightproduct;
-            rightproduct*=nums[i];   //updateing rightproduct
-        }
+            ans[i]*=rightProduct;
+            rightProduct*=nums[i];    //updating rightproduct
+        }   
+    
         return ans;
     }
 }
