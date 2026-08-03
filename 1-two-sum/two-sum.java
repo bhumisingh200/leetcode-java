@@ -9,8 +9,9 @@ class Solution {
 
             if(ans.containsKey(complement)){
                 return new int[]{ans.get(complement), i};
+            }else{
+                ans.put(nums[i],i);
             }
-            ans.put(nums[i],i);
         }
         return new int[]{};
     }
