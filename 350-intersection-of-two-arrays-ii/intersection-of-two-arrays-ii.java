@@ -1,4 +1,31 @@
-class Solution {
+//HashMap
+class Solution{
+    public int[] intersect(int[] nums1, int[] nums2){
+        //Initiate HashMap
+        HashMap<Integer,Integer> map=new HashMap<>();
+        // to store frequency
+        for(int num:nums1){
+            map.put(num, map.getOrDefault(num,0)+1);
+        }
+        //Initiating ArrayList
+        ArrayList<Integer> list=new ArrayList<>();
+        //Traverse nums2
+        for(int num:nums2){
+            if(map.containsKey(num) && map.get(num)>0){
+                list.add(num);
+                map.put(num,map.get(num)-1);
+            }
+        }
+        //Convert ArrayList to int[]
+        int[] result=new int[list.size()];
+        for(int i=0; i<list.size(); i++){
+            result[i]=list.get(i);
+        }
+        return result;
+    }
+}
+//Sorting+Two Pointer
+/*class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
@@ -24,4 +51,4 @@ class Solution {
         }
         return result;
     }
-}
+}*/
