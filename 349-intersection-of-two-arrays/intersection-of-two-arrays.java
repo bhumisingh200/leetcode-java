@@ -20,7 +20,7 @@ class Solution {
         int[] result=new int[answer.size()];    //writing both line down because up near hashset declaration answer.size() is still 0 
         int index=0;
         for(int num:answer){
-            result[index++]=num;
+            result[index++]=num;    //index++ means:Use the current value first, then increase it by 1.
         }
 
         return result;
@@ -42,8 +42,10 @@ class Solution {
         while(i<nums1.length && j<nums2.length){
 
             if(nums1[i]==nums2[j]){
-                if(list.isEmpty() || list.get(list.size()-1)!= nums1[i]){
+                if(list.isEmpty() || list.get(list.size()-1)!= nums1[i]){     //list.get(list.size()-1)"Give me the last element of the list."
                     list.add(nums1[i]);
+                    i++;
+                    j++;
                 }
             }else if(nums1[i]<nums2[j]){
                 i++;
