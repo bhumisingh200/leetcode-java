@@ -3,19 +3,23 @@ class Solution{
     public int[] intersect(int[] nums1, int[] nums2){
         //Initiate HashMap
         HashMap<Integer,Integer> map=new HashMap<>();
-        // to store frequency
+
+        //Put nums1 values in map
         for(int num:nums1){
             map.put(num, map.getOrDefault(num,0)+1);
         }
-        //Initiating ArrayList
+
+        //Initiate ArrayList
         ArrayList<Integer> list=new ArrayList<>();
-        //Traverse nums2
+
+        //Traverse nums2 in ArrayList
         for(int num:nums2){
             if(map.containsKey(num) && map.get(num)>0){
                 list.add(num);
-                map.put(num,map.get(num)-1);
+                map.put(num, map.get(num)-1);
             }
         }
+
         //Convert ArrayList to int[]
         int[] result=new int[list.size()];
         for(int i=0; i<list.size(); i++){
