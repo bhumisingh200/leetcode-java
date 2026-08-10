@@ -1,28 +1,27 @@
 //HashSet
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
+        //Initiate HashSet
         HashSet<Integer> set1=new HashSet<>();
-        HashSet<Integer> answer=new HashSet<>();
-        
+        HashSet<Integer> ans=new HashSet<>();
          
-        // Store all elements of nums1 in HashMap
-        for(int num:nums1){ 
+        // Store all elements of nums1 in HashMSet
+        for(int num:nums1){
             set1.add(num);
         }
         // Check common elements
-        for(int i=0; i<nums2.length;i++){ 
-            if(set1.contains(nums2[i])){ 
-                answer.add(nums2[i]); 
-            } 
+        for(int i=0; i<nums2.length; i++){
+            if(set1.contains(nums2[i])){
+                ans.add(nums2[i]);
+            }
         }
-
+        
         // Convert HashSet to int[]
-        int[] result=new int[answer.size()];    //writing both line down because up near hashset declaration answer.size() is still 0 
+        int[] result=new int[ans.size()];    //writing both line down because up near hashset declaration answer.size() is still 0 
         int index=0;
-        for(int num:answer){
-            result[index++]=num;    //index++ means:Use the current value first, then increase it by 1.
+        for(int num:ans){
+            result[index++]=num; //index++ is postincrement and we can't use "get" like other related q as hashset does not allow fetching only(add,conain,remove,size,isEmpty)
         }
-
         return result;
         
     }
