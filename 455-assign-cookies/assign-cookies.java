@@ -18,7 +18,7 @@ class Solution {
                 j++;
             }
         }
-        return i;
+        return i;   //The i says We have successfully satisfied  children, and the next child to look at is at next index .
         
     }
 }
