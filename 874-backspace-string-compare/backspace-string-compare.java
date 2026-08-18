@@ -36,7 +36,7 @@ class Solution {
             }
 
             //compare atual character
-            if( i>=0 && j>=0){
+            if( i>=0 && j>=0){                   //Only compare characters if BOTH strings still have a character."
                 if(s.charAt(i)!=t.charAt(j)){
                     return false;
                 }
