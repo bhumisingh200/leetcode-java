@@ -25,3 +25,6 @@ class Solution {
         return minLength;
     }
 }
+
+//Time Complexity: O(n)
+//Space Compleity: O(0)
