@@ -8,11 +8,13 @@ class Solution {
 
         while(right<nums.length){
 
+            //Expand the window
             if(nums[right]==0){
                 zeros++;
             }
             right++;
 
+            //Too many zeros -> Shrink the window
             while(zeros>k){
 
                 if(nums[left]==0){
@@ -20,6 +22,8 @@ class Solution {
                 }
                 left++;
             }
+
+            //Current window is valid
             int length=right-left;
             maxLength=Math.max(maxLength,length);
         }
