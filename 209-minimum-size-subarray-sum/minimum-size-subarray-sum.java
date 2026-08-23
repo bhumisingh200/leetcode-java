@@ -7,14 +7,18 @@ class Solution {
         int minLength=nums.length+1;
 
         while(right<nums.length){
+
             //Expand
             sum+=nums[right];
             right++;
 
-            //Shrinking window while sum is enough
+            //Shrink window while sum is enough 
             while(sum>=target){
+
                 int length=right-left;
                 minLength=Math.min(minLength,length);
+
+                //Shrink the window
                 sum-=nums[left];
                 left++;
             }
@@ -27,4 +31,4 @@ class Solution {
 }
 
 //Time Complexity: O(n)
-//Space Compleity: O(0)
+//Space Compleity: O(1)
