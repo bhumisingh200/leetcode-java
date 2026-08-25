@@ -1,7 +1,11 @@
-/*class Solution {
+class Solution {
     public int countGoodSubstrings(String s) {
 
         int n=s.length();
+        if (n < 3) {
+            return 0;
+        }
+
         int unique=0;
 
         //First Window
@@ -21,10 +25,10 @@
         }
         return unique;
     }
-}*/
+}
 
 //Different Method
-class Solution {
+/*class Solution {
     public int countGoodSubstrings(String s) {
 
         int n = s.length();
@@ -42,4 +46,4 @@ class Solution {
 
         return unique;
     }
-}
+}*/
