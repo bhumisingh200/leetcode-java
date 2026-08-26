@@ -16,8 +16,8 @@ class Solution {
 
         //map1 → frequency of s1
         for(int i = 0; i < k; i++) {                       
-            char ch1 = s1.charAt(i); 
-            map1.put(ch1, map1.getOrDefault(ch1, 0) + 1); 
+            char ch = s1.charAt(i); 
+            map1.put(ch, map1.getOrDefault(ch, 0) + 1); 
         }
 
         //map2 → frequency of first window of s2
@@ -31,25 +31,27 @@ class Solution {
             return true;
         }
 
+        //SLide the window
         while(right<s2.length()){
-            //Slide the window & removing the element
+            //Removing the element
             char remove=s2.charAt(left);
             map2.put(remove,map2.get(remove)-1);
             if(map2.get(remove)==0){
                 map2.remove(remove);
             }
+            left++;
 
             //Add character entering the window
             char add=s2.charAt(right);
             map2.put(add,map2.getOrDefault(add,0)+1);
+            right++;
 
             //Check current window
             if(map1.equals(map2)) {
                 return true;
             }
             
-            right++;
-            left++;
+            
 
         }
         return false;
