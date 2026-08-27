@@ -1,49 +1,52 @@
-class Solution {
-    public int countGoodSubstrings(String s) {
+/*class Solution{
+    public int countGoodSubstrings(String s){
 
         int n=s.length();
-        if (n < 3) {     //If not writen will show runtime error due to edge case
+        int unique=0;
+
+        //Edge Case
+        if(n<3){
             return 0;
         }
 
-        int unique=0;
-
-        //First Window
-        if( s.charAt(0)!=s.charAt(1) &&
-            s.charAt(0)!=s.charAt(2) && 
-            s.charAt(1)!=s.charAt(2) ){
+        //Current Window
+        if(s.charAt(0)!=s.charAt(1) &&
+           s.charAt(0)!=s.charAt(2) &&
+           s.charAt(1)!=s.charAt(2)){
             unique++;
         }
 
-        //slide the window
+        //Sliding Window
         for(int i=3; i<n; i++){
             if(s.charAt(i)!=s.charAt(i-1) &&
-               s.charAt(i)!=s.charAt(i-2) && 
-               s.charAt(i-1)!=s.charAt(i-2) ){
+               s.charAt(i)!=s.charAt(i-2) &&
+               s.charAt(i-1)!=s.charAt(i-2)){
+                unique++;
+            }
+        }
+        return unique;
+    }
+}*/
+
+//Different Method
+class Solution{
+    public int countGoodSubstrings(String s){
+
+        int n=s.length();
+        int unique=0;
+
+        //Edge Case
+        if(n<3){
+            return 0;
+        }
+
+        for(int i=0; i<=n-3; i++){
+            if(s.charAt(i)!=s.charAt(i+1) &&
+               s.charAt(i)!=s.charAt(i+2) &&
+               s.charAt(i+1)!=s.charAt(i+2)){
                 unique++;
             }
         }
         return unique;
     }
 }
-
-//Different Method
-/*class Solution {
-    public int countGoodSubstrings(String s) {
-
-        int n = s.length();
-        int unique = 0;
-
-        for (int i = 0; i <= n - 3; i++) {
-
-            if (s.charAt(i) != s.charAt(i + 1) &&
-                s.charAt(i) != s.charAt(i + 2) &&
-                s.charAt(i + 1) != s.charAt(i + 2)) {
-
-                unique++;
-            }
-        }
-
-        return unique;
-    }
-}*/
