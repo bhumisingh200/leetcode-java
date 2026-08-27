@@ -2,27 +2,26 @@ class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
         
         int n=arr.length;
-
-        //1.Calculate sum of first window(first window must be calculated before checking it)
         int sum=0;
         int count=0;
-        //Calculate first window
+
+        //Calculate Sum in first Window
         for(int i=0; i<k; i++){
             sum+=arr[i];
         }
-        //Then Check first window 
+        //Now check first window
         if(sum>=k*threshold){
             count++;
         }
 
-        //2.Slide the Window
+        //Slide the window
         for(int i=k; i<n; i++){
-            //Remove the element leaving the window
+            //Subtract leaving element
             sum-=arr[i-k];
-
-            //Add the new element entering the window
+            //Add entering element
             sum+=arr[i];
 
+            //Check each window
             if(sum>=k*threshold){
                 count++;
             }
