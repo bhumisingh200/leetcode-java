@@ -2,7 +2,7 @@ class Solution {
     public int countGoodSubstrings(String s) {
 
         int n=s.length();
-        if (n < 3) {
+        if (n < 3) {     //If not writen will show runtime error due to edge case
             return 0;
         }
 
@@ -17,9 +17,9 @@ class Solution {
 
         //slide the window
         for(int i=3; i<n; i++){
-            if(s.charAt(i-2)!=s.charAt(i-1) &&
-               s.charAt(i-2)!=s.charAt(i) && 
-               s.charAt(i-1)!=s.charAt(i) ){
+            if(s.charAt(i)!=s.charAt(i-1) &&
+               s.charAt(i)!=s.charAt(i-2) && 
+               s.charAt(i-1)!=s.charAt(i-2) ){
                 unique++;
             }
         }
