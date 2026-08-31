@@ -12,3 +12,5 @@ class Solution {
         return runningsum;
     }
 }
+
+//for even lesser O(n) to O(1) time complexity
