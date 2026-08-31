@@ -1,4 +1,5 @@
-class Solution {
+//Space Complexity is O(n) & Time complexity is O(n)
+/*class Solution {
     public int[] runningSum(int[] nums) {
 
         int n=nums.length;
@@ -11,6 +12,15 @@ class Solution {
         }
         return runningsum;
     }
-}
+}*/
 
-//for even lesser O(n) to O(1) time complexity
+//for even lesser O(n) to O(1) time complexity & Time complexity is O(n)
+class Solution {
+    public int[] runningSum(int[] nums) {
+
+        for(int i=1; i<nums.length; i++){
+            nums[i]=nums[i]+nums[i-1];
+        }
+        return nums;
+    }
+}
