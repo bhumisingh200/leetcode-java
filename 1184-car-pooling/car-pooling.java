@@ -10,7 +10,7 @@ class Solution {
             int to=trip[2];
 
             //Add passenger at first index & subtract at last+1 index
-            diff[from]+=numPassengers;
+            diff[from]+=numPassengers;    //If you do:diff[from - 1] += passengers;then:from = 1,from - 1 = 0 ,passengers get on at stop 0 which is wrong.
             diff[to]-=numPassengers;
         }
         int current=0;
