@@ -1,4 +1,4 @@
-/*class Solution {
+class Solution {
     public int lengthOfLongestSubstring(String s) {
         int left=0;
         int right=0;
@@ -25,9 +25,9 @@
         }
         return maxlength;
     }
-}*/
+}
 
-class Solution{
+/*class Solution{
     public int lengthOfLongestSubstring(String s){
 
         int left=0;
@@ -52,4 +52,4 @@ class Solution{
         }
         return maxlength;
     }
-}
+}*/
