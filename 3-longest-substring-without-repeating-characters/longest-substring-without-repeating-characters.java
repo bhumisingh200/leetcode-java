@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
     public int lengthOfLongestSubstring(String s) {
         int left=0;
         int right=0;
@@ -21,6 +21,33 @@ class Solution {
                 freq[remove]--;
                 left++;
             }   
+            maxlength=Math.max(maxlength,right-left);
+        }
+        return maxlength;
+    }
+}*/
+
+class Solution{
+    public int lengthOfLongestSubstring(String s){
+
+        int left=0;
+        int right=0;
+        int n=s.length();
+        int maxlength=0;
+        HashMap<Character,Integer> map=new HashMap<>();
+
+        while(right<n){
+            //Expand
+            char add=s.charAt(right);
+            map.put(add,map.getOrDefault(add,0)+1);
+            right++;
+
+            while(map.get(s.charAt(right-1))>1){
+                //Shrink
+                char remove=s.charAt(left);
+                map.put(remove,map.get(remove)-1);
+                left++;
+            }
             maxlength=Math.max(maxlength,right-left);
         }
         return maxlength;
