@@ -12,9 +12,7 @@ class Solution {
             int area=(j-i)*(Math.min(height[i],height[j]));
 
             //Check maxArea with area
-            if(maxArea<area){
-                maxArea=area;
-            }
+            maxArea=Math.max(maxArea,area);
 
             //Move the min pointer
             if(height[i]<height[j]){
@@ -26,3 +24,4 @@ class Solution {
         return maxArea;
     }
 }
+//Time:O(n) & Space:O(1)
