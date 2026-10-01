@@ -1,24 +1,22 @@
 # Write your MySQL query statement below
-#SELF JOIN QUESTION
-SELECT 
-    c1.visited_on,
-    SUM(c2.amount) AS amount,
-    ROUND(SUM(c2.amount) / 7, 2) AS average_amount
-FROM
-    (
-        SELECT visited_on, SUM(amount) AS amount
-        FROM Customer
-        GROUP BY visited_on
-    ) c1
-JOIN
-    (
-        SELECT visited_on, SUM(amount) AS amount
-        FROM Customer
-        GROUP BY visited_on
-    ) c2
-ON c2.visited_on BETWEEN
-   DATE_SUB(c1.visited_on, INTERVAL 6 DAY)
-   AND c1.visited_on
-GROUP BY c1.visited_on
-HAVING COUNT(DISTINCT c2.visited_on) = 7
-ORDER BY c1.visited_on;
+#Correlated subquery
+SELECT visited_on, 
+       (
+        SELECT SUM(c2.amount)
+        FROM Customer c2
+        WHERE c2.visited_on BETWEEN DATE_SUB(c.visited_on, INTERVAL 6 DAY)
+        AND c.visited_on
+       ) AS amount,
+       ROUND((
+        SELECT SUM(c2.amount)
+        FROM Customer c2
+        WHERE c2.visited_on BETWEEN DATE_SUB(c.visited_on, INTERVAL 6 DAY)
+        AND c.visited_on
+       )/7,2) AS average_amount
+FROM Customer c
+WHERE  c.visited_on >= (
+    SELECT DATE_ADD(MIN(visited_on), INTERVAL 6 DAY)
+    FROM Customer
+)
+GROUP BY visited_on
+ORDER BY visited_on;
