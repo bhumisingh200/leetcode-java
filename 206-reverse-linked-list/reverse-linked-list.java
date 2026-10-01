@@ -8,7 +8,9 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+ //Iterative method
+ //Time Complexity: O(n)
+/*class Solution {
     public ListNode reverseList(ListNode head) {
         
         ListNode prev=null;
@@ -22,5 +24,31 @@ class Solution {
             curr=forward;
         }
         return prev;
+    }
+}*/
+
+//Recurion Method
+class Solution{
+    public ListNode solve(ListNode prev, ListNode curr){
+        //Base Condition
+        if(curr==null){
+            return prev;
+        }
+        //One case i will Solve and other work will be done by recursion
+        ListNode forward=curr.next;
+        curr.next=prev;
+        //Move prev and curr 1 step forward
+        prev=curr;
+        curr=forward;
+
+        //Recursion Call
+        ListNode ans=solve(prev,curr);
+        return ans;
+    }
+    public ListNode reverseList(ListNode head){
+        ListNode prev=null;
+        ListNode curr=head;
+        ListNode ans=solve(prev, curr);
+        return ans;
     }
 }
