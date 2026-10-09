@@ -10,12 +10,15 @@
  */
  //Iterative method
  //Time Complexity: O(n)
-/*class Solution {
+ //Space Complexity: no recursion → O(1) space
+class Solution {
     public ListNode reverseList(ListNode head) {
         
+        //1.Firstly Create
         ListNode prev=null;
         ListNode curr=head;
 
+        //2.It will work until current is at null
         while(curr!=null){
             ListNode forward=curr.next;
 
@@ -25,10 +28,12 @@
         }
         return prev;
     }
-}*/
+}
 
 //Recurion Method
-class Solution{
+//Time Complexity: O(n) because full linklist is being Traversed
+//Space Complexity:recursion stack → O(n) space
+/*class Solution{
     public ListNode solve(ListNode prev, ListNode curr){
         //Base Condition
         if(curr==null){
@@ -51,4 +56,4 @@ class Solution{
         ListNode ans=solve(prev, curr);
         return ans;
     }
-}
+}*/
