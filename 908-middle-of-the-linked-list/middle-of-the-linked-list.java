@@ -12,15 +12,14 @@
 class Solution {
 public ListNode middleNode(ListNode head) {
 
-ListNode slow=head; //Turtle=1step forward
-ListNode fast=head; //Rabbit=2step forward
+    ListNode slow=head; //Turtle=1step forward
+    ListNode fast=head; //Rabbit=2step forward
 
-    while(fast!=null && fast.next!=null){   //Not checking fast.next.next because it can be null to terminae the while condition
+    while(fast!=null && fast.next!=null){  //Not checking fast.next.next because it can be null to terminae the while condition
         fast=fast.next.next;
         slow=slow.next;
     }
-    //After coming out of the loop our slow will be standing at mid
+     //After coming out of the loop our slow will be standing at mid
     return slow;
 }
-
 }
