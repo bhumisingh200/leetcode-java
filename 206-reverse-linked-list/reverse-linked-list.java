@@ -11,7 +11,7 @@
  //Iterative method
  //Time Complexity: O(n)
  //Space Complexity: no recursion → O(1) space
-class Solution {
+/*class Solution {
     public ListNode reverseList(ListNode head) {
         
         //1.Firstly Create
@@ -28,19 +28,21 @@ class Solution {
         }
         return prev;
     }
-}
+}*/
 
 //Recurion Method
 //Time Complexity: O(n) because full linklist is being Traversed
 //Space Complexity:recursion stack → O(n) space
-/*class Solution{
+class Solution{
     public ListNode solve(ListNode prev, ListNode curr){
         //Base Condition
         if(curr==null){
             return prev;
         }
+
         //One case i will Solve and other work will be done by recursion
         ListNode forward=curr.next;
+        //Make it point backward
         curr.next=prev;
         //Move prev and curr 1 step forward
         prev=curr;
@@ -50,10 +52,11 @@ class Solution {
         ListNode ans=solve(prev,curr);
         return ans;
     }
+
     public ListNode reverseList(ListNode head){
         ListNode prev=null;
         ListNode curr=head;
-        ListNode ans=solve(prev, curr);
+        ListNode ans=solve(prev,curr);
         return ans;
     }
-}*/
+}
