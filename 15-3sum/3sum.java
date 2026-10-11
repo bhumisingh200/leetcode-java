@@ -1,29 +1,32 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        //1.Sort the array
+        //1.Sort Array
         Arrays.sort(nums);
 
-        //To store all answers
+        //2.Initilizing a list inside a list to store the 3element together
         List<List<Integer>> result=new ArrayList<>();
 
-        //2.Fix one element
-        for(int i=0; i<nums.length-2; i++){//why -2? bcs When i is fixed, we need at least 2 elements after i for left and right
+        //3.Fix an element
+        for(int i=0; i<nums.length-2; i++){
 
-            //Skip duplicate fixed number
-            if(i>0 && nums[i]==nums[i-1]){
-                continue;
+            //Check if its not duplicate
+            if(i>0 && nums[i]==nums[i-1]){   //useing if here as while loop will cause infinite loop error
+                continue;                    //The continue sends execution back to the nearest condition loop 
             }
 
-            //3.Two Pointer
+            //The two pointers
             int left=i+1;
             int right=nums.length-1;
 
+            //Move left and right 
             while(left<right){
 
-                int sum=nums[i]+nums[left]+nums[right];
+                int sum = nums[i] + nums[left] + nums[right];
 
-                //Found a triple
-                if(sum==0){ 
+                //Binary Search Algorithm
+                //If triple element found
+                if(sum==0){
+
                     result.add(Arrays.asList(
                         nums[i],
                         nums[left],
@@ -32,22 +35,22 @@ class Solution {
                     left++;
                     right--;
 
-                    //Skip duplicate left value
+                    //Check for any left duplicate
                     while(left<right && nums[left]==nums[left-1]){
                         left++;
                     }
-                    //Skip duplicate right value
+                    //Check for any right duplicate
                     while(left<right && nums[right]==nums[right+1]){
                         right--;
                     }
                 }
                 //Sum is too big
-                else if(sum>0){
-                    right--;
+                else if(sum<0){
+                    left++;
                 }
                 //Sum is too small
                 else{
-                    left++;
+                    right--;
                 }
             }
         }
