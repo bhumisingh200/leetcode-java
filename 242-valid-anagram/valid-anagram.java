@@ -36,7 +36,7 @@ class Solution{
             char ch=s.charAt(i);
 
             if(map.containsKey(ch)){
-                map.put(ch, map.get(ch)-1);
+                map.put(ch, map.get(ch)+1);
             }else{
                 map.put(ch,1);            }
         }
