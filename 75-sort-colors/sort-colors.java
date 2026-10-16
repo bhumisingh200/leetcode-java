@@ -8,25 +8,20 @@ class Solution {
 
        while(mid<=end){
         if(nums[mid]==0){
-            //swap
             int temp=nums[start];
             nums[start]=nums[mid];
             nums[mid]=temp;
 
             start++;
             mid++;
-        }
-        else if(nums[mid]==1){
+        }else if(nums[mid]==1){
             mid++;
-        }
-        else{
-            //Swap
+        }else{
             int temp=nums[mid];
             nums[mid]=nums[end];
             nums[end]=temp;
-
             end--;
         }
-       } 
+       }
     }
 }
