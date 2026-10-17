@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
     public int search(int[] nums, int target) {
         int low=0;
         int high=nums.length-1;
@@ -18,5 +18,35 @@ class Solution {
         }
         return -1;
         
+    }
+}*/
+
+class Solution {
+    public int solve(int nums[],int target,int low, int high){
+        //Base case
+        if(low>high){
+            return -1;
+        }
+        //1 Case solved
+        //Processing or Binary Search Logic
+        int mid=low + (high-low)/2;
+        if(nums[mid]==target){
+            return mid;
+        }else if(nums[mid]>target){
+            //Move left
+            high=mid-1;
+        }else{
+            //Move right
+            low=mid+1;
+        }
+        //Other case solved by
+        //Recursion Call
+        return solve(nums, target, low, high);
+    }
+    public int search(int[] nums, int target) {
+        int low=0;
+        int high=nums.length-1;
+        int ans=solve(nums,target,low,high);
+        return ans;
     }
 }
