@@ -9,7 +9,7 @@
  * }
  */
 //Optimal: Rearrange links
-class Solution {
+/*class Solution {
     public ListNode oddEvenList(ListNode head) {
         //If LL empty
         if(head == null){
@@ -41,50 +41,44 @@ class Solution {
         //Return head of modified list
         return oddHead;
     }
-}
+}*/
 
 //Brute force
-/*class Solution {
+class Solution {
     public ListNode oddEvenList(ListNode head) {
-        if(head == null){
-            return null;
+        if(head == null || head.next == null){    //null list && single node  
+            return head;
         }
 
-        List<ListNode> odd=new ArrayList<>();
-        List<ListNode> even=new ArrayList<>();
+        List<Integer> list=new ArrayList<>();
 
+        //Store odd-position values
         ListNode curr = head;
-        int pos = 1;
-
-        //Separate nodes by position
+        int pos=1;
         while(curr != null){
             if(pos % 2 == 1){
-                odd.add(curr);
-            }else{
-                even.add(curr);
+                list.add(curr.val);
+            } 
+            curr = curr.next;
+            pos++;    
+        }
+        //Store even-position values
+        curr = head;
+        pos=1;
+        while(curr != null){
+            if(pos % 2 == 0){
+                list.add(curr.val);
             }
-            curr=curr.next;
+            curr = curr.next;
             pos++;
         }
-        //Connect odd-position nodes
-        for (int i = 0; i < odd.size() - 1; i++) {
-            odd.get(i).next = odd.get(i + 1);
+
+        //Copy values back into linked list
+        curr = head;
+        for(int val:list){
+            curr.val=val;
+            curr=curr.next;
         }
-
-        // Connect even-position nodes
-        for (int i = 0; i < even.size() - 1; i++) {
-            even.get(i).next = even.get(i + 1);
-        }
-
-        // Connect odd list to even list
-        odd.get(odd.size() - 1).next =
-            even.isEmpty() ? null : even.get(0);
-
-        // End the list
-        if (!even.isEmpty()) {
-            even.get(even.size() - 1).next = null;
-        }
-
-        return odd.get(0);
+        return head;
     }
-}*/
+}
