@@ -11,11 +11,11 @@
  //Brute Force
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        
+
         int length = 0;
         ListNode temp = head;
-
-        //Step 1:Count Nodes
+        
+        //Step 1:Count nodes
         while(temp != null){
             length++;
             temp = temp.next;
@@ -29,7 +29,7 @@ class Solution {
         for(int i=1; i<length-n; i++){
             temp = temp.next;
         }
-        //Step 4:Node reached before the target now delete the target node
+        //Step 4: Delete the target
         temp.next = temp.next.next;
 
         return head;
