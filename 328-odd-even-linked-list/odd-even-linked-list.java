@@ -9,7 +9,7 @@
  * }
  */
 //Optimal: Rearrange links
-/*class Solution {
+class Solution {
     public ListNode oddEvenList(ListNode head) {
         //If LL empty
         if(head == null){
@@ -41,10 +41,10 @@
         //Return head of modified list
         return oddHead;
     }
-}*/
+}
 
 //Brute force
-class Solution {
+/*class Solution {
     public ListNode oddEvenList(ListNode head) {
         if(head == null || head.next == null){    //null list && single node  
             return head;
@@ -81,4 +81,4 @@ class Solution {
         }
         return head;
     }
-}
+}*/
